@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                login.putExtra("key", "value");
+                
                 startActivity(login);
             }
         });

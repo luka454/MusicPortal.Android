@@ -65,21 +65,29 @@ public class LoginActivity extends Activity {
 
     public void attemptLogin() {
 
+        boolean valid = true;
         mUsernameView.setError(null);
         mPasswordView.setError(null);
 
-        if(!isUsernameValid(mUsernameView.getText().toString()))
+        if(!isUsernameValid(mUsernameView.getText().toString())) {
             mUsernameView.setError(getString(R.string.error_invalid_username));
+            valid = false;
+        }
 
-        if(!isPasswordValid(mPasswordView.getText().toString()))
+        if(!isPasswordValid(mPasswordView.getText().toString())){
             mPasswordView.setError(getString(R.string.error_invalid_password));
+            valid = false;
+        }
+
+        if(!valid)
+            return;
 
         SessionManager.TokenModel loginModel = sessionManager.login(mUsernameView.getText().toString(),
                 mPasswordView.getText().toString());
 
         if(loginModel != null){
             Toast.makeText(getApplicationContext(), "Successful login", Toast.LENGTH_LONG);
-            super.finish();
+            //finish();
         }
         else {
             Toast.makeText(null, "Login failed", Toast.LENGTH_LONG);
