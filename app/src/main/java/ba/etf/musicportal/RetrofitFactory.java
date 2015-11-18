@@ -11,13 +11,12 @@ import com.squareup.okhttp.Call;
  */
 public class RetrofitFactory {
 
-    private static String BASE_URL = "http://192.168.0.102/";
-    private static String BASE_URL_SECURE = "http://192.168.0.102";
-
+    private static String BASE_URL = "http://192.168.0.102:9000/";
+    private static String BASE_URL_SECURE = "https://192.168.0.102:9000/";
 
     private RetrofitFactory() { }
 
-    public Retrofit create(){
+    public static Retrofit create(){
         return create(false);
     }
 
@@ -28,7 +27,7 @@ public class RetrofitFactory {
      * AuthService authService = RetrofitFactory.create(true).create(AuthService.class)
      * @return
      */
-    public Retrofit create(boolean secure){
+    public static Retrofit create(boolean secure){
         return new Retrofit.Builder().baseUrl(secure ? BASE_URL_SECURE : BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

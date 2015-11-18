@@ -30,6 +30,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -41,6 +46,7 @@ public class LoginActivity extends Activity {
     EditText mUsernameView;
 
     Button mSignInBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,16 +88,20 @@ public class LoginActivity extends Activity {
         if(!valid)
             return;
 
-        SessionManager.TokenModel loginModel = sessionManager.login(mUsernameView.getText().toString(),
+        PipedCallback<SessionManager.TokenModel> loginCallback = sessionManager.login(mUsernameView.getText().toString(),
                 mPasswordView.getText().toString());
 
-        if(loginModel != null){
-            Toast.makeText(getApplicationContext(), "Successful login", Toast.LENGTH_LONG);
-            //finish();
-        }
-        else {
-            Toast.makeText(null, "Login failed", Toast.LENGTH_LONG);
-        }
+        loginCallback.setPipedCallback(new Callback<SessionManager.TokenModel>() {
+            @Override
+            public void onResponse(Response<SessionManager.TokenModel> response, Retrofit retrofit) {
+                Toast.makeText(getApplicationContext(), "Successful login", Toast.LENGTH_LONG);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(null, "Login failed", Toast.LENGTH_LONG);
+            }
+        });
     }
 
     //Helpers
