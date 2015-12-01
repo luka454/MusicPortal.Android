@@ -1,4 +1,4 @@
-package ba.etf.musicportal;
+package ba.etf.musicportal.retrofit;
 
 import retrofit.Callback;
 import retrofit.Response;

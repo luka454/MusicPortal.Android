@@ -1,11 +1,12 @@
 package ba.etf.musicportal;
 
-import android.os.Debug;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.annotations.SerializedName;
 
+import ba.etf.musicportal.retrofit.AuthService;
+import ba.etf.musicportal.retrofit.PipedCallback;
+import ba.etf.musicportal.retrofit.RetrofitFactory;
 import retrofit.Call;
 import retrofit.Response;
 import retrofit.Retrofit;
@@ -18,8 +19,8 @@ public class SessionManager {
 
     public PipedCallback<TokenModel> login(String username, String password){
         //TODO: Call login and remember token
-        RetrofitFactory.AuthService authService = RetrofitFactory.create(false)
-                                                    .create(RetrofitFactory.AuthService.class);
+        AuthService authService = RetrofitFactory.create(false)
+                                                    .create(AuthService.class);
 
         Call<SessionManager.TokenModel> call = authService.getToken("password", username, password);
 
@@ -31,7 +32,7 @@ public class SessionManager {
 
                 if(response.isSuccess()){
                     TokenModel tModel = response.body();
-                    Log.d("RESP: SUC:", "Token: " + tModel.token);;
+                    Log.d("RESP: SUC:", "Token: " + tModel.token);
 
                     currentUser = tModel;
 
@@ -78,6 +79,7 @@ public class SessionManager {
     public class TokenModel {
         @SerializedName("access_token")
         String token;
+        @SerializedName("userName")
         String username;
 
         //TODO: maybe to add token expiration;

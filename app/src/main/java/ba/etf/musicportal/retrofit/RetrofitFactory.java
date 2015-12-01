@@ -1,8 +1,9 @@
-package ba.etf.musicportal;
+package ba.etf.musicportal.retrofit;
 
 import android.preference.PreferenceActivity;
 import android.util.Log;
 
+import ba.etf.musicportal.SessionManager;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.http.Field;
@@ -91,13 +92,6 @@ public class RetrofitFactory {
                 .build();
     }
 
-    public interface AuthService {
 
-        @FormUrlEncoded
-        @POST("token")
-        retrofit.Call<SessionManager.TokenModel> getToken(@Field("grant_type") String grantType,
-                                                          @Field("username") String username,
-                                                          @Field("password") String password);
-    }
 
 }
