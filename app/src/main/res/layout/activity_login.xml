@@ -8,9 +8,9 @@
     tools:context="ba.etf.musicportal.LoginActivity">
 
     <!-- Login progress -->
-    <ProgressBar android:id="@+id/login_progress" style="?android:attr/progressBarStyleLarge"
+    <ProgressBar android:id="@+id/login_progress" style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp" android:visibility="gone"/>
+        android:layout_marginBottom="8dp" android:visibility="visible"/>
 
 
     <ScrollView android:id="@+id/login_form" android:layout_width="match_parent"
@@ -35,6 +35,21 @@
                 android:layout_marginTop="16dp" android:text="@string/action_sign_in"
                 android:textStyle="bold"
                 />
+            <TextView
+                android:id="@+id/text_success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_base_url"/>
+
+            <Button
+                android:id="@+id/btn_base_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Change base Url"/>
 
         </LinearLayout>
     </ScrollView>
