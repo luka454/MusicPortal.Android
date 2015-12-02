@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class LoginActivity extends Activity {
 
     EditText mEditBaseUrl;
     Button mBtnBaseUrl;
+
+    EditText mToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +66,27 @@ public class LoginActivity extends Activity {
                 RetrofitFactory.setBaseUrl(mEditBaseUrl.getText().toString());
             }
         });
+
+        mToken = (EditText) findViewById(R.id.textView);
+
+        Button b = (Button) findViewById(R.id.show_auth_token);
+        b.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAuthToken();
+            }
+        });
+        showAuthToken();
     }
 
+    private void showAuthToken(){
+        if(sessionManager.isLoggedIn()){
+            mToken.setText(sessionManager.getCurrentToken());
+        } else {
+
+            mToken.setText(getString(R.string.no_auth_token));
+        }
+    }
 
 
     public void attemptLogin() {

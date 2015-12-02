@@ -35,7 +35,6 @@ public class SessionManager {
                     Log.d("RESP: SUC:", "Token: " + tModel.token);
 
                     currentUser = tModel;
-
                 }
                 else {
                     currentUser = null;
@@ -59,7 +58,7 @@ public class SessionManager {
 
     public boolean isLoggedIn(){
         //TODO: check token expiration;
-        return currentUser == null;
+        return currentUser != null;
     }
 
     public void logout() {
@@ -67,11 +66,18 @@ public class SessionManager {
         currentUser = null;
     }
 
-    public static String getCurrentUser(){
+    public String getCurrentUser(){
         if(currentUser == null)
             return null;
         return currentUser == null ? null : currentUser.username;
     }
+
+    public String getCurrentToken(){
+        if(currentUser == null)
+            return null;
+        return currentUser == null ? null : currentUser.token;
+    }
+
 
     private static TokenModel currentUser = null;
 

@@ -51,8 +51,23 @@
                 android:layout_height="wrap_content"
                 android:text="Change base Url"/>
 
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/no_auth_token"
+                android:id="@+id/textView"
+                android:editable="false"/>
+
+            <Button
+                android:id="@+id/show_auth_token"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/refresh"/>
+
         </LinearLayout>
     </ScrollView>
+
 
 </LinearLayout>
 

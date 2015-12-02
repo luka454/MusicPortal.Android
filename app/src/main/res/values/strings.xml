@@ -16,4 +16,12 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="title_activity_nesto">Nesto</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="songs">Songs</string>
+    <string name="no_auth_token">There is no auth token. Login and refresh page</string>
+    <string name="refresh">Refresh</string>
 </resources>

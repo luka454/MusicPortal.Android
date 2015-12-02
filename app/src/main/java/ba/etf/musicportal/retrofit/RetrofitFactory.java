@@ -76,15 +76,22 @@ public class RetrofitFactory {
 
     public static Retrofit create(boolean secure){
         OkHttpClient client = new OkHttpClient();
+        //Auth interceptor
+        AuthInterceptor auth = new AuthInterceptor(new SessionManager());
+        client.interceptors().add(auth);
+
+        //Logging interceptor
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
                 Log.e("OkHttp Log", message);
             }
         });
+
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         client.interceptors().add(logging);
+
 
         return new Retrofit.Builder().baseUrl(secure ? BASE_URL_SECURE : BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
