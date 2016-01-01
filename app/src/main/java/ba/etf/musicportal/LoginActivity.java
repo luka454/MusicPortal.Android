@@ -22,7 +22,6 @@ import retrofit.Retrofit;
  */
 public class LoginActivity extends Activity {
 
-
     SessionManager sessionManager;
     EditText mPasswordView;
     EditText mUsernameView;

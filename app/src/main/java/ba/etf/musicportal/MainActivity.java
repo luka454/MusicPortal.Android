@@ -22,8 +22,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent login = new Intent(getApplicationContext(), LoginActivity.class);
                 login.putExtra("key", "value");
-                
+
                 startActivity(login);
+            }
+        });
+
+        Button btn1 = (Button) findViewById(R.id.songs_button);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login1 = new Intent(getApplicationContext(), PlayerActivity.class);
+                //login.putExtra("key", "value");
+
+                startActivity(login1);
             }
         });
     }

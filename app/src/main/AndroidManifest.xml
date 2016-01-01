@@ -33,6 +33,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ba.etf.musicportal.MainActivity" />
         </activity>
+        <activity
+            android:name=".PlayerActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ba.etf.musicportal.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
