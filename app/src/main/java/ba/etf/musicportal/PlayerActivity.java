@@ -42,7 +42,7 @@ import retrofit.Retrofit;
 public class PlayerActivity extends Activity
 {
 
-    private static final String TAG = "Aktivnost";
+    private static final String TAG = "Greska u playeru";
     private List<Track> mListItems;
     private SCTrackAdapter mAdapter;
     private TextView mSelectedTrackTitle;
@@ -107,7 +107,8 @@ public class PlayerActivity extends Activity
                     mMediaPlayer.reset();
                 }
 
-                try {
+                try
+                {
                     mMediaPlayer.setDataSource(track.getStreamURL() + "?client_id=" + Config.CLIENT_ID);
                     mMediaPlayer.prepareAsync();
                 } catch (IOException e) {

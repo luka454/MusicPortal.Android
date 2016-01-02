@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -62,6 +63,23 @@ public class SCTrackAdapter extends BaseAdapter {
 
         // Trigger the download of the URL asynchronously into the image view.
         Picasso.with(mContext).load(track.getArtworkURL()).into(holder.trackImageView);
+
+        final Button heartBtn = (Button)convertView.findViewById(R.id.heart_btn);
+        //heartBtn.setBackgroundColor(255);
+
+        heartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //do something
+                //or some other task
+                //API CALL FOR HEART AND UNHEART
+                if (heartBtn.getText().equals("HEART"))
+                    heartBtn.setText("UNHEART");
+                else if (heartBtn.getText().equals("UNHEART"))
+                    heartBtn.setText("HEART");
+                else heartBtn.setText("ERROR");
+            }
+        });
 
         return convertView;
     }
