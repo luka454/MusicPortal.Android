@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btn1 = (Button) findViewById(R.id.songs_button);
-        btn1.setOnClickListener(new View.OnClickListener() {
+        /*btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent login1 = new Intent(getApplicationContext(), PlayerActivity.class);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(login1);
             }
-        });
+        });*/
     }
 
 

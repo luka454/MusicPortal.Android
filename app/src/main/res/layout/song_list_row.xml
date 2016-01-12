@@ -5,20 +5,14 @@
     android:paddingRight="@dimen/activity_vertical_margin"
     android:layout_width="match_parent"
     android:layout_height="@dimen/row_height">
-
-    <ImageView
-        android:id="@+id/track_image"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/image_padding"
-        android:layout_width="@dimen/image_size"
-        android:layout_height="@dimen/image_size"/>
     <TextView
         android:layout_centerVertical="true"
         android:id="@+id/track_title"
-        android:layout_marginLeft="@dimen/activity_vertical_inner_margin"
+        android:layout_marginLeft="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+
     <Button
         android:id="@+id/heart_btn"
         android:layout_width="wrap_content"

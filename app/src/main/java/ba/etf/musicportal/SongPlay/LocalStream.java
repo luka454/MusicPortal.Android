@@ -1,17 +1,17 @@
-package ba.etf.musicportal.songs;
+package ba.etf.musicportal.SongPlay;
 
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
 /**
- * Created by Masina on 1/1/2016.
+ * Created by Masina on 1/11/2016.
  */
-public class SoundCloud
+public class LocalStream
 {
     private static final Retrofit retrofit = new Retrofit.Builder().baseUrl(Config.API_URL).addConverterFactory(GsonConverterFactory.create()).build();
-    private static final SCService scService = retrofit.create(SCService.class);
+    private static final ServiceCall scService = retrofit.create(ServiceCall.class);
 
-    public static SCService getService() {
+    public static ServiceCall getService() {
         return scService;
     }
 }

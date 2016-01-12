@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="Log in"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize|stateVisible" >
             <meta-data
@@ -34,9 +34,18 @@
                 android:value="ba.etf.musicportal.MainActivity" />
         </activity>
         <activity
-            android:name=".PlayerActivity"
-            android:label="@string/title_activity_login"
-            android:parentActivityName=".MainActivity" >
+            android:name=".SearchActivity"
+            android:label="Search music"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ba.etf.musicportal.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SongPlay.SearchResultPlay"
+            android:label="Play music"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ba.etf.musicportal.MainActivity" />

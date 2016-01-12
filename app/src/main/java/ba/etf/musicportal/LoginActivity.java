@@ -1,6 +1,7 @@
 package ba.etf.musicportal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import ba.etf.musicportal.SongPlay.Config;
 import ba.etf.musicportal.retrofit.PipedCallback;
 import ba.etf.musicportal.retrofit.RetrofitFactory;
 import retrofit.Callback;
@@ -63,27 +65,28 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
                 RetrofitFactory.setBaseUrl(mEditBaseUrl.getText().toString());
+                Config.setApiUrl(mEditBaseUrl.getText().toString());
             }
         });
 
-        mToken = (EditText) findViewById(R.id.textView);
+  //     mToken = (EditText) findViewById(R.id.textView);
 
-        Button b = (Button) findViewById(R.id.show_auth_token);
+/*        Button b = (Button) findViewById(R.id.show_auth_token);
         b.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAuthToken();
             }
-        });
+        });*/
         showAuthToken();
     }
 
     private void showAuthToken(){
         if(sessionManager.isLoggedIn()){
-            mToken.setText(sessionManager.getCurrentToken());
+    //        mToken.setText(sessionManager.getCurrentToken());
         } else {
 
-            mToken.setText(getString(R.string.no_auth_token));
+      //      mToken.setText(getString(R.string.no_auth_token));
         }
     }
 
@@ -122,9 +125,14 @@ public class LoginActivity extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mTextSuccess.setText("Token: " + tModel.token + " un: "
+/*                            mTextSuccess.setText("Token: " + tModel.token + " un: "
                                     + tModel.username);
-                            mTextSuccess.setTextColor(Color.rgb(30,190,30));
+                            mTextSuccess.setTextColor(Color.rgb(30, 190, 30));
+*/
+                            Intent login = new Intent(getApplicationContext(), SearchActivity.class);
+                            login.putExtra("token_auth", tModel.token);
+                            startActivity(login);
+
                         }
                     });
                 } else {
@@ -157,11 +165,13 @@ public class LoginActivity extends Activity {
     }
 
     //Helpers
-    private boolean isUsernameValid(String username){
+    private boolean isUsernameValid(String username)
+    {
         return username.length() >= 4;
     }
 
-    private boolean isPasswordValid(String password){
+    private boolean isPasswordValid(String password)
+    {
         return !password.isEmpty();
     }
 

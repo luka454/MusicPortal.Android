@@ -22,8 +22,8 @@ import java.nio.charset.Charset;
  */
 public class RetrofitFactory {
 
-    private static String BASE_URL = "http://192.168.0.101:9000/";
-    private static String BASE_URL_SECURE = "https://192.168.0.101:9000/";
+    private static String BASE_URL = "http://192.168.0.106:8080";
+    private static String BASE_URL_SECURE = "https://192.168.0.106:9000/";
 
     public static String getBaseUrl(){
         return BASE_URL;
